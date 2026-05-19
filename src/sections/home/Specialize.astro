@@ -1,0 +1,118 @@
+---
+import Smudge from '../../../public/assets/homePage/smudge.svg'
+
+---
+ <section class="specialize-section" id="Specialize-section">
+    <div class="specialize-content">
+      <div>
+        <Smudge class="smudge smudge-specialize" />
+        <p>What We Help</p>
+      </div>
+
+      <p>
+        We specialize in helping service-based businesses grow their online
+        presence and attract more local customers.
+      </p>
+
+      <ul class="business-list">
+        <li><span>Salon</span></li>
+        <li><span>Tatto Studios</span></li>
+        <li><span>Barbershops</span></li>
+        <li><span>Gyms</span></li>
+      </ul>
+    </div>
+
+    <img
+      loading="lazy"
+      src="https://cdn.pixabay.com/photo/2021/11/15/11/47/haircut-6797896_1280.jpg"
+      alt="Cutting Hair Image"
+      class="specialize-image"
+    />
+  </section>
+
+
+  <style>
+
+  p, ul {
+	font-size: 18px;
+  }
+
+  .specialize-section {
+    background-color: #1e1e1e;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+
+
+  .specialize-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    gap: 40px;
+  }
+
+
+
+
+  .specialize-image,{
+    height: fit-content;
+    width: 45%;
+    position: relative;
+    max-width: 800px;
+    display: none;
+  }
+
+
+  .smudge {
+    position: absolute;
+    width: 300px;
+  }
+
+  .smudge-specialize {
+    bottom: -16px;
+    right: 0;
+    left: 17.5rem;
+    transform: scale(1.1, 1.7);
+    transform-origin: center;
+  }
+
+
+  .specialize-content {
+    color: white;
+  }
+
+  .business-list {
+    flex: 1;
+    display: flex;
+    gap: 16px;
+    font-size: 18px;
+    list-style-type: disc;
+    list-style-position: inside;
+  }
+
+  .business-list span {
+    position: relative;
+    left: -8px;
+  }
+
+
+  @media (min-width: 1280px) {
+    .specialize-section {
+      flex-direction: row;
+    }
+
+    .specialize-content{
+      width: 45%;
+    }
+
+    .specialize-image{
+      display: block;
+    }
+  }
+<style/>

@@ -1,0 +1,67 @@
+---
+import Logo from "../../../public/assets/logos/localLift.svg";
+import DropDown from "./Dropdown.astro";
+---
+
+<style>
+    nav {
+        position: fixed;
+        height: 55px;
+        width: 100%;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: #1e1e1e;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    nav > div:nth-child(1) {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        & p {
+            font-size: 28px;
+            font-weight: 600;
+            color: white;
+        }
+    }
+    nav > div:nth-child(2) {
+        display: flex;
+        align-items: center;
+        gap: 45px;
+    }
+    nav > div:nth-child(3) {
+        display: flex;
+        gap: 10px;
+        & button:nth-child(1) {
+            background-color: #8a97a3;
+            color: #1f2933;
+        }
+        & button:nth-child(2) {
+            background-color: #2d7be5;
+            color: white;
+        }
+    }
+
+    .spacer {
+        height: 75px;
+    }
+</style>
+
+<nav>
+    <div>
+        <Logo width={50} />
+        <p>Local Lift</p>
+    </div>
+    <div>
+        <DropDown title={"Solutions"} />
+        <DropDown title={"Contact"} />
+    </div>
+    <div>
+        <button>Contact Us</button>
+        <button>Free Consultation</button>
+    </div>
+</nav>
+{/* Spacer (offset for fixed navbar) */}
+<div class="spacer"></div>

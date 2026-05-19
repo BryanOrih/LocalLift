@@ -1,0 +1,68 @@
+---
+import ChevronDown from "../../../public/assets/icons/chevron-down.svg";
+const { title } = Astro.props;
+---
+
+<style>
+    .dropdown {
+        position: relative;
+    }
+    .dropdown > div:nth-child(1) {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+
+        & p {
+            color: white;
+        }
+        & svg {
+            width: 15px;
+            height: 15px;
+            transition-property: all;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 250ms;
+        }
+    }
+    .dropdown > div:nth-child(2) {
+        position: absolute;
+        margin-top: 8px;
+        background-color: white;
+        color: black;
+        padding: 12px;
+        border-radius: 5px;
+        box-shadow:
+            0 4px 6px -1px rgb(0 0 0 / 0.1),
+            0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+</style>
+<div class="dropdown">
+    <div class="dropdownItem">
+        <p>{title}</p>
+        <ChevronDown fill={"white"} />
+    </div>
+    <div class="" style="display: none;">
+        <p>Dropdown content</p>
+    </div>
+</div>
+
+<script>
+    const items = document.querySelectorAll(".dropdownItem");
+
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
+            const menu = item.nextElementSibling as HTMLElement;
+            const svg = item.children[1] as HTMLElement;
+
+            const showingMenu = menu.style.display === "block";
+
+            if (showingMenu) {
+                menu.style.display = "none";
+                svg.style.rotate = "0deg";
+            } else {
+                menu.style.display = "block";
+                svg.style.rotate = "180deg";
+            }
+        });
+    });
+</script>

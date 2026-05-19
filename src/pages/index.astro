@@ -1,17 +1,21 @@
 ---
+import BaseLayout from "../layout/BaseLayout.astro";
 
+import HeroSection from "../sections/home/Hero.astro";
+import ServicesSection from "../sections/home/Services.astro";
+import SpecializeSection from "../sections/home/Specialize.astro";
+import ProcessSection from "../sections/home/Process.astro";
+import PlatformSection from "../sections/home/Platform.astro";
+import CtaSection from "../sections/home/Cta.astro";
+import ContactSection from "../sections/home/Contact.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+	<HeroSection />
+	<ServicesSection />
+	<SpecializeSection />
+	<ProcessSection />
+	<PlatformSection />
+	<CtaSection />
+	<ContactSection />
+</BaseLayout>

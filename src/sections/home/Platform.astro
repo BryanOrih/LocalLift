@@ -1,0 +1,94 @@
+---
+import Google from "../../../public/assets/homePage/TrustedPlatforms/google.svg";
+import Figma from "../../../public/assets/homePage/TrustedPlatforms/figma.svg";
+import Notion from "../../../public/assets/homePage/TrustedPlatforms/notion.svg";
+import Slack from "../../../public/assets/homePage/TrustedPlatforms/slack.svg";
+
+import Smudge from "../../../public/assets/homePage/smudge.svg";
+
+const trustedPlatforms = {
+    Google,
+    Figma,
+    Notion,
+    Slack,
+};
+---
+
+<section class="platforms-section" id="Platforms-section">
+    <div class="platforms-heading">
+        <Smudge class="smudge smudge-platforms" />
+        <p class="platforms-title">Powered by Trusted Platforms</p>
+    </div>
+
+    <div class="platforms-list">
+        {
+            Object.entries(trustedPlatforms).map(([key, Component]) => {
+                const PlatformIcon = Component;
+
+                return <PlatformIcon class="platform-icon" />;
+            })
+        }
+    </div>
+</section>
+<style>
+
+  p, ul {
+	font-size: 18px;
+  }
+
+  .smudge {
+    position: absolute;
+    width: 300px;
+  }
+
+  .smudge-platforms {
+    bottom: -20px;
+    right: 0;
+    left: 25rem;
+    transform: scale(1, 2);
+    transform-origin: center;
+  }
+
+ 
+ 
+  .platforms-section {
+    background-color: #1e1e1e;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .platforms-heading {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .platforms-title {
+    color: white;
+    font-size: 72px;
+  }
+
+  .platforms-list {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    max-width: 1500px;
+  }
+
+  .platform-icon {
+    width: 100%;
+    height: 100%;
+    color: white;
+    max-width: 190px;
+    max-height: 130px;
+  }
+
+<style/>

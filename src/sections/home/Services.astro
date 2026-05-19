@@ -1,0 +1,148 @@
+---
+import Smudge from '../../../public/assets/homePage/smudge.svg'
+
+const services = [
+    {
+        title: "Website Design",
+        description:
+            "Custom-built websites designed to convert visitors into paying customers.",
+        image: "https://media2.dev.to/dynamic/image/width=1080,height=1080,fit=cover,gravity=auto,format=auto/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zsyklljdugbnhl6silqo.jpg",
+        alt: "coding-image",
+    },
+    {
+        title: "Local SEO Optimization",
+        description:
+            "Get your business ranking higher on Google so customers can find you in your area.",
+        image: "https://images.squarespace-cdn.com/content/5dac9a5dd63b2c7e6452e34a/1710792832829-1NXWBZM2K7KXFJ83UVIA/Screenshot+2024-03-18+at+4.13.50%E2%80%AFPM.png?content-type=image%2Fpng",
+        alt: "SEO-image",
+    },
+    {
+        title: "Booking System Setup",
+        description:
+            "We integrate tools like booking platforms to make scheduling easy for your clients.",
+        image: "https://cdn2.psychologytoday.com/assets/styles/manual_crop_4_3_1200x900/public/teaser_image/blog_entry/2024-06/Calendar.jpg?itok=5g55vUZ1",
+        alt: "Booking-image",
+    },
+    {
+        title: "Content & Media Creation",
+        description:
+            "Professional photos and videos to help your brand stand out online.",
+        image: "https://static.foxnews.com/foxnews.com/content/uploads/2025/06/1-how-to-move-photos-and-videos-off-of-a-phone.jpg",
+        alt: "Content-and-Creation-image",
+    },
+];
+---
+
+<section class="services-section" id="Services-section">
+    <div class="section-heading-wrapper">
+        <Smudge class="smudge smudge-services" />
+        <p class="section-title">What We Do</p>
+    </div>
+
+    <p>
+        Simple, effective digital solutions designed to help local businesses
+        grow.
+    </p>
+
+    <div class="services-grid">
+        {
+            services.map(({ image, title, description, alt }) => (
+                <div class="service-card">
+                    <div class="service-image-wrapper">
+                        <img
+                            loading="lazy"
+                            class="service-image"
+                            src={image}
+                            alt={alt}
+                        />
+                    </div>
+
+                    <div class="service-content">
+                        <p class="service-title">{title}</p>
+                        <p class="service-description">{description}</p>
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<style>
+
+  p, ul {
+	font-size: 18px;
+  }
+
+  .services-section{
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .smudge {
+    position: absolute;
+    width: 300px;
+  }
+
+  .smudge-services {
+    bottom: 20px;
+    right: 0;
+    left: 12.5rem;
+  }
+
+  .section-title {
+    position: relative;
+    font-size: 72px;
+    font-weight: 700;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 12px;
+    align-items: center;
+    max-width: 500px;
+  }
+
+  .service-image-wrapper {
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
+  }
+
+  .service-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .service-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 16px;
+  }
+
+  .service-title {
+    font-weight: 700;
+    font-size: 40px;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  .service-description {
+    font-size: 18px;
+  }
+
+<style/>

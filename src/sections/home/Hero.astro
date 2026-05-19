@@ -1,0 +1,92 @@
+---
+import HeroIconBg from "../../../public/assets/homePage/heroIconBg.svg";
+import HeroIcon from "../../../public/assets/homePage/heroIcon.svg";
+---
+
+<section class="hero-section" id="Hero-section">
+    <HeroIconBg class="hero-bg" />
+
+    <div class="hero-content">
+        <p class="hero-title">
+            Websites That Get Local Businesses More Clients
+        </p>
+
+        <p class="hero-description">
+            We design high-converting websites and optimize your online presence
+            so customers can find you, trust you, and book with you.
+        </p>
+
+        <button>Free Consultation</button>
+    </div>
+
+    <HeroIcon class="hero-icon" />
+</section>
+
+<style>
+
+  p, ul {
+	font-size: 18px;
+  }
+
+  .hero-section {
+    background-color: #1e1e1e;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-content,
+  .specialize-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    gap: 40px;
+  }
+
+  .hero-title {
+    font-size: 64px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .hero-description {
+    color: white;
+    font-size: 18px;
+  }
+
+  .hero-icon{
+    height: fit-content;
+    width: 45%;
+    position: relative;
+    max-width: 800px;
+    display: none;
+  }
+
+
+
+  @media (min-width: 1280px) {
+    .hero-section {
+      flex-direction: row;
+    }
+
+    .hero-content{
+      width: 45%;
+    }
+
+    .hero-icon{
+      display: block;
+    }
+  }
+<style/>
