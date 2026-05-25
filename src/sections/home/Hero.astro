@@ -4,34 +4,24 @@ import HeroIcon from "../../../public/assets/homePage/heroIcon.svg";
 ---
 
 <section class="hero-section" id="Hero-section">
-    <HeroIconBg class="hero-bg" />
+  <HeroIconBg class="hero-bg" />
+  <div class="hero-content">
+    <h1>Websites That Get Local Businesses More Clients</h1>
 
-    <div class="hero-content">
-        <p class="hero-title">
-            Websites That Get Local Businesses More Clients
-        </p>
+    <p>
+      We design high-converting websites and optimize your online presence so
+      customers can find you, trust you, and book with you.
+    </p>
+    <button>Free Consultation</button>
+  </div>
 
-        <p class="hero-description">
-            We design high-converting websites and optimize your online presence
-            so customers can find you, trust you, and book with you.
-        </p>
-
-        <button>Free Consultation</button>
-    </div>
-
-    <HeroIcon class="hero-icon" />
+  <HeroIcon class="hero-icon" />
 </section>
 
 <style>
-
-  p, ul {
-	font-size: 18px;
-  }
-
   .hero-section {
     background-color: #1e1e1e;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: min(80px, 10vw) 0 min(80px, 10vw) 0;
     align-items: center;
     position: relative;
     display: flex;
@@ -47,26 +37,7 @@ import HeroIcon from "../../../public/assets/homePage/heroIcon.svg";
     height: 100%;
   }
 
-  .hero-content,
-  .specialize-content {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    gap: 40px;
-  }
-
-  .hero-title {
-    font-size: 64px;
-    font-weight: 700;
-    color: white;
-  }
-
-  .hero-description {
-    color: white;
-    font-size: 18px;
-  }
-
-  .hero-icon{
+  .hero-icon {
     height: fit-content;
     width: 45%;
     position: relative;
@@ -74,19 +45,36 @@ import HeroIcon from "../../../public/assets/homePage/heroIcon.svg";
     display: none;
   }
 
-
+  .hero-content {
+    display: flex;
+    padding: 40px;
+    flex-direction: column;
+    max-width: 600px;
+    gap: 40px;
+    z-index: 2;
+    & h1,
+    p {
+      color: white;
+    }
+    & h1 {
+      font-weight: 700;
+      font-size: var(--step-5);
+      font-weight: 700;
+    }
+  }
 
   @media (min-width: 1280px) {
     .hero-section {
       flex-direction: row;
     }
 
-    .hero-content{
+    .hero-content {
       width: 45%;
+      padding: 0px;
     }
 
-    .hero-icon{
+    .hero-icon {
       display: block;
     }
   }
-<style/>
+</style>

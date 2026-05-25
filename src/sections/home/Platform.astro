@@ -7,51 +7,33 @@ import Slack from "../../../public/assets/homePage/TrustedPlatforms/slack.svg";
 import Smudge from "../../../public/assets/homePage/smudge.svg";
 
 const trustedPlatforms = {
-    Google,
-    Figma,
-    Notion,
-    Slack,
+  Google,
+  Figma,
+  Notion,
+  Slack,
 };
 ---
 
-<section class="platforms-section" id="Platforms-section">
-    <div class="platforms-heading">
-        <Smudge class="smudge smudge-platforms" />
-        <p class="platforms-title">Powered by Trusted Platforms</p>
-    </div>
+<section id="Platforms-section">
+  <div class="header-wrapper">
+    <h2>
+      Powered by <span><Smudge />Trusted</span> Platforms
+    </h2>
+  </div>
 
-    <div class="platforms-list">
-        {
-            Object.entries(trustedPlatforms).map(([key, Component]) => {
-                const PlatformIcon = Component;
+  <div class="platforms-list">
+    {
+      Object.entries(trustedPlatforms).map(([key, Component]) => {
+        const PlatformIcon = Component;
 
-                return <PlatformIcon class="platform-icon" />;
-            })
-        }
-    </div>
+        return <PlatformIcon class="platform-icon" />;
+      })
+    }
+  </div>
 </section>
 <style>
-
-  p, ul {
-	font-size: 18px;
-  }
-
-  .smudge {
-    position: absolute;
-    width: 300px;
-  }
-
-  .smudge-platforms {
-    bottom: -20px;
-    right: 0;
-    left: 25rem;
-    transform: scale(1, 2);
-    transform-origin: center;
-  }
-
- 
- 
-  .platforms-section {
+  section {
+    padding: min(80px, 10vw);
     background-color: #1e1e1e;
     padding-top: 150px;
     padding-bottom: 150px;
@@ -62,33 +44,55 @@ const trustedPlatforms = {
     justify-content: center;
   }
 
-  .platforms-heading {
+  .header-wrapper {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .platforms-title {
-    color: white;
-    font-size: 72px;
+    & h2 {
+      font-size: var(--step-4);
+      position: relative;
+      text-align: center;
+      margin: 0;
+      color: white;
+      z-index: 0;
+      & span {
+        position: relative;
+        & svg {
+          position: absolute;
+          transform: scale(1, 1.8);
+          width: calc(var(--step-4) * 4.4);
+          bottom: -20px;
+          right: 0;
+          left: -5px;
+          z-index: -1;
+          pointer-events: none;
+        }
+      }
+    }
   }
 
   .platforms-list {
-    flex: 1;
-    display: flex;
+    display: grid;
     align-items: center;
     justify-content: space-evenly;
+    grid-template-columns: repeat(auto-fit, 190px 190px);
     width: 100%;
     max-width: 1500px;
+    gap: 30px;
+    row-gap: 50px;
+    & svg {
+      width: 100%;
+      height: 100%;
+      color: white;
+      max-width: 190px;
+      max-height: 130px;
+    }
   }
 
-  .platform-icon {
-    width: 100%;
-    height: 100%;
-    color: white;
-    max-width: 190px;
-    max-height: 130px;
+  @media (max-width: 700px) {
+    .platforms-list {
+      grid-template-columns: repeat(auto-fit, 190px);
+    }
   }
-
-<style/>
+</style>

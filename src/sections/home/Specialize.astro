@@ -1,66 +1,87 @@
 ---
-import Smudge from '../../../public/assets/homePage/smudge.svg'
-
+import Smudge from "../../../public/assets/homePage/smudge.svg";
 ---
- <section class="specialize-section" id="Specialize-section">
-    <div class="specialize-content">
-      <div>
-        <Smudge class="smudge smudge-specialize" />
-        <p>What We Help</p>
-      </div>
 
-      <p>
-        We specialize in helping service-based businesses grow their online
-        presence and attract more local customers.
-      </p>
-
-      <ul class="business-list">
-        <li><span>Salon</span></li>
-        <li><span>Tatto Studios</span></li>
-        <li><span>Barbershops</span></li>
-        <li><span>Gyms</span></li>
-      </ul>
+<section id="Specialize-section">
+  <div class="content">
+    <div>
+      <Smudge class="smudge smudge-specialize" />
+      <h2>What We Help</h2>
     </div>
 
-    <img
-      loading="lazy"
-      src="https://cdn.pixabay.com/photo/2021/11/15/11/47/haircut-6797896_1280.jpg"
-      alt="Cutting Hair Image"
-      class="specialize-image"
-    />
-  </section>
+    <p>
+      We specialize in helping service-based businesses grow their online
+      presence and attract more local customers.
+    </p>
 
+    <ul class="business-list">
+      <li><span>Salon</span></li>
+      <li><span>Tatto Studios</span></li>
+      <li><span>Barbershops</span></li>
+      <li><span>Gyms</span></li>
+    </ul>
+  </div>
 
-  <style>
+  <img
+    loading="lazy"
+    src="https://cdn.pixabay.com/photo/2021/11/15/11/47/haircut-6797896_1280.jpg"
+    alt="Cutting Hair Image"
+    class="image"
+  />
+</section>
 
-  p, ul {
-	font-size: 18px;
-  }
-
-  .specialize-section {
+<style>
+  section {
     background-color: #1e1e1e;
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding: min(80px, 10vw);
     align-items: center;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    color: white;
   }
 
-
-
-  .specialize-content {
+  .content {
     display: flex;
     flex-direction: column;
     max-width: 600px;
     gap: 40px;
+    & div {
+      position: relative;
+      & svg {
+        position: absolute;
+        width: calc(var(--step-4) * 4.4);
+        bottom: -16px;
+        right: 0;
+        left: calc(var(--step-4) * 3.5);
+        transform: scale(1.1, 1.7);
+        transform-origin: center;
+      }
+      & h2 {
+        font-size: var(--step-4);
+        font-weight: 700;
+        position: relative;
+        margin: 0;
+      }
+    }
   }
 
+  .business-list {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 0px;
+    & li > span {
+      position: relative;
+      left: -8px;
+    }
+  }
 
-
-
-  .specialize-image,{
+  .image {
     height: fit-content;
     width: 45%;
     position: relative;
@@ -68,51 +89,15 @@ import Smudge from '../../../public/assets/homePage/smudge.svg'
     display: none;
   }
 
-
-  .smudge {
-    position: absolute;
-    width: 300px;
-  }
-
-  .smudge-specialize {
-    bottom: -16px;
-    right: 0;
-    left: 17.5rem;
-    transform: scale(1.1, 1.7);
-    transform-origin: center;
-  }
-
-
-  .specialize-content {
-    color: white;
-  }
-
-  .business-list {
-    flex: 1;
-    display: flex;
-    gap: 16px;
-    font-size: 18px;
-    list-style-type: disc;
-    list-style-position: inside;
-  }
-
-  .business-list span {
-    position: relative;
-    left: -8px;
-  }
-
-
   @media (min-width: 1280px) {
-    .specialize-section {
+    section {
       flex-direction: row;
     }
-
-    .specialize-content{
+    .content {
       width: 45%;
     }
-
-    .specialize-image{
-      display: block;
+    .image {
+      display: flex;
     }
   }
-<style/>
+</style>

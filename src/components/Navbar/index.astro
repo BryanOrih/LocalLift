@@ -1,67 +1,162 @@
 ---
 import Logo from "../../../public/assets/logos/localLift.svg";
-import DropDown from "./Dropdown.astro";
+import HamburgerIcon from "../../../public/assets/icons/hamburget-btn.svg";
+import XIcon from "../../../public/assets/icons/close-x.svg";
 ---
 
 <style>
-    nav {
-        position: fixed;
-        height: 55px;
-        width: 100%;
-        z-index: 10;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        background-color: #1e1e1e;
-        padding-top: 20px;
-        padding-bottom: 20px;
+  nav {
+    position: fixed;
+    height: 55px;
+    width: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1e1e1e;
+    padding: 40px 0 40px 0;
+    box-sizing: border-box;
+  }
+  .section-1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    & p {
+      font-size: 28px;
+      font-weight: 600;
+      color: white;
     }
-    nav > div:nth-child(1) {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        & p {
-            font-size: 28px;
-            font-weight: 600;
-            color: white;
-        }
+  }
+  .section-2 {
+    display: flex;
+    align-items: center;
+    gap: 45px;
+    & a {
+      color: white;
+      text-decoration: none;
+      /* font-weight: 400; */
     }
-    nav > div:nth-child(2) {
-        display: flex;
-        align-items: center;
-        gap: 45px;
+  }
+  .section-3 {
+    display: flex;
+    gap: 10px;
+    & button:nth-child(1) {
+      background-color: #8a97a3;
+      color: #1f2933;
     }
-    nav > div:nth-child(3) {
-        display: flex;
-        gap: 10px;
-        & button:nth-child(1) {
-            background-color: #8a97a3;
-            color: #1f2933;
-        }
-        & button:nth-child(2) {
-            background-color: #2d7be5;
-            color: white;
-        }
+    & button:nth-child(2) {
+      background-color: #2d7be5;
+      color: white;
+    }
+  }
+
+  .icon {
+    width: 38px;
+    height: 38px;
+    cursor: pointer;
+  }
+  .hamburger-icon {
+    display: none;
+  }
+  .x-icon {
+    display: flex;
+    margin-left: auto;
+    margin-right: 0;
+    padding: 10px;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 250ms;
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 100%;
+    width: 250px;
+    height: 100vh;
+    background-color: #1e1e1e;
+    z-index: 10;
+    box-shadow:
+      rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 250ms;
+  }
+  .show-side-menu {
+    transform: translateX(-100%);
+  }
+
+  .side-menu-content {
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+    gap: 30px;
+    & a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    .hamburger-icon {
+      display: block;
+    }
+    .section-2,
+    .section-3 {
+      display: none;
     }
 
-    .spacer {
-        height: 75px;
+    nav {
+      justify-content: space-between;
+      padding: 40px 40px 40px 40px;
     }
+  }
 </style>
 
 <nav>
-    <div>
-        <Logo width={50} />
-        <p>Local Lift</p>
-    </div>
-    <div>
-        <DropDown title={"Solutions"} />
-        <DropDown title={"Contact"} />
-    </div>
-    <div>
-        <button>Contact Us</button>
-        <button>Free Consultation</button>
-    </div>
+  <div class="section-1">
+    <Logo width={50} />
+    <p>Local Lift</p>
+  </div>
+  <div class="section-2">
+    <a href="#solutions">Solutions</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="section-3">
+    <button>Contact Us</button>
+    <button>Free Consultation</button>
+  </div>
+  <HamburgerIcon class="hamburger-icon icon" />
+</nav>
+<nav class="side-menu" aria-label="Mobile Navigation Menu">
+  <XIcon class="x-icon icon" />
+  <div class="side-menu-content">
+    <a href="#solutions">Solutions</a>
+    <a href="#contact">Contact</a>
+  </div>
 </nav>
 {/* Spacer (offset for fixed navbar) */}
-<div class="spacer"></div>
+<div class="spacer" style="height: 75px;"></div>
+
+<script>
+  const hamburgerIcon = document.querySelector(".hamburger-icon");
+  const xIcon = document.querySelector(".x-icon");
+  const sideMenu = document.querySelector(".side-menu");
+
+  hamburgerIcon?.addEventListener("click", () => {
+    sideMenu?.classList.toggle("show-side-menu");
+  });
+  xIcon?.addEventListener("click", () => {
+    sideMenu?.classList.toggle("show-side-menu");
+  });
+</script>

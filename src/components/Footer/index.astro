@@ -1,6 +1,140 @@
 ---
+import Facebook from "../../../public/assets/logos/facebookIcon.svg";
+import Twitter from "../../../public/assets/logos/twitterIcon.svg";
+import LinkedIn from "../../../public/assets/logos/linkedinIcon.svg";
+import LocalLift from "../../../public/assets/logos/localLift.svg";
 ---
 
-<div>
-    Footer
-</div>
+<footer>
+  <div class="footer-main">
+    <div class="company-brand">
+      <span>
+        <LocalLift />
+        <h4>LocalLift</h4>
+      </span>
+      <small>Let’s build a website that works for your business.</small>
+    </div>
+    <div class="cta">
+      <h4>Try It Today</h4>
+      <small
+        >Get started for free. Add your whole team as your needs grow.</small
+      >
+      <button>Start Today</button>
+    </div>
+  </div>
+  <hr class="divider" />
+  <div class="footer-bottom">
+    <div class="legal">
+      <small>Terms & Privacy</small>
+      <small>@2026 LocalLift LLC.</small>
+    </div>
+    <div class="socials">
+      <a>
+        <Facebook />
+      </a>
+      <a>
+        <Twitter />
+      </a>
+      <a>
+        <LinkedIn />
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    color: white;
+    padding: min(80px, 10vw) min(80px, 3vw) 50px min(80px, 3vw);
+    background-color: #1e1e1e;
+  }
+
+  .footer-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .company-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    max-width: 200px;
+    & span {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 10px;
+      & h4 {
+        font-size: var(--step-1);
+        margin: 0;
+      }
+      & svg {
+        max-width: 45px;
+        max-height: 45px;
+      }
+    }
+  }
+
+  .cta {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 200px;
+    gap: 20px;
+    & h4 {
+      font-size: var(--step-0);
+      margin: 0;
+    }
+  }
+
+  .divider {
+    border: none;
+    height: 1px;
+    widht: 100%;
+    background-color: #2e4e73;
+    margin: 40px 0;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .socials {
+      display: flex;
+      gap: 20px;
+      & svg {
+        max-width: 20px;
+        max-height: 20px;
+        fill: white;
+        cursor: pointer;
+      }
+    }
+    .legal {
+      display: flex;
+      gap: 40px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .footer-main {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 40px;
+
+      & .cta {
+        align-items: center;
+      }
+      & .company-brand {
+        align-items: center;
+      }
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 50px;
+    }
+  }
+</style>

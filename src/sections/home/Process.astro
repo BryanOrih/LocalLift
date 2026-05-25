@@ -7,151 +7,149 @@ import Launch from "../../../public/assets/homePage/OurProcess/launch.svg";
 import Smudge from "../../../public/assets/homePage/smudge.svg";
 
 const process = [
-    {
-        title: "Discovery",
-        description:
-            "We start with a quick call to understand your business, your goals, and how your website can help you get more clients. This step helps us create a clear plan tailored to your needs.",
-        outcome: "Clear direction and strategy",
-        includedList: [
-            "business & service breakdown",
-            "target audience understanding",
-            "review of your current online presence",
-            "goal setting",
-        ],
-        SVG: Discovery,
-    },
-    {
-        title: "Build",
-        description:
-            "We design and develop your website from the ground up, focusing on clean design, user experience, and conversion. Everything is built to look professional and turn visitors into bookings.",
-        outcome: "A high-quality, conversion-focused website",
-        includedList: [
-            "custom website design",
-            "mobile optimization",
-            "booking system integration (Booksy, etc.)",
-            "fast and responsive performance",
-        ],
-        SVG: Build,
-    },
-    {
-        title: "Launch",
-        description:
-            "Once everything is ready, we launch your website and make sure everything is running smoothly so customers can find and book with you easily.",
-        outcome: "Your business is live and accessible online",
-        includedList: [
-            "full site testing",
-            "domain & hosting setup",
-            "going live",
-            "ensuring booking and contact features work",
-        ],
-        SVG: Launch,
-    },
-    {
-        title: "Grow",
-        description:
-            "After launch, we help you improve your online visibility and continue bringing in more clients through SEO and ongoing optimization.",
-        outcome: "More traffic, more visibility, more bookings",
-        includedList: [
-            "local SEO setup (Google visibility)",
-            "content improvements",
-            "performance tracking",
-            "optional monthly support",
-        ],
-        SVG: Grow,
-    },
+  {
+    title: "Discovery",
+    description:
+      "We start with a quick call to understand your business, your goals, and how your website can help you get more clients. This step helps us create a clear plan tailored to your needs.",
+    outcome: "Clear direction and strategy",
+    includedList: [
+      "business & service breakdown",
+      "target audience understanding",
+      "review of your current online presence",
+      "goal setting",
+    ],
+    SVG: Discovery,
+  },
+  {
+    title: "Build",
+    description:
+      "We design and develop your website from the ground up, focusing on clean design, user experience, and conversion. Everything is built to look professional and turn visitors into bookings.",
+    outcome: "A high-quality, conversion-focused website",
+    includedList: [
+      "custom website design",
+      "mobile optimization",
+      "booking system integration (Booksy, etc.)",
+      "fast and responsive performance",
+    ],
+    SVG: Build,
+  },
+  {
+    title: "Launch",
+    description:
+      "Once everything is ready, we launch your website and make sure everything is running smoothly so customers can find and book with you easily.",
+    outcome: "Your business is live and accessible online",
+    includedList: [
+      "full site testing",
+      "domain & hosting setup",
+      "going live",
+      "ensuring booking and contact features work",
+    ],
+    SVG: Launch,
+  },
+  {
+    title: "Grow",
+    description:
+      "After launch, we help you improve your online visibility and continue bringing in more clients through SEO and ongoing optimization.",
+    outcome: "More traffic, more visibility, more bookings",
+    includedList: [
+      "local SEO setup (Google visibility)",
+      "content improvements",
+      "performance tracking",
+      "optional monthly support",
+    ],
+    SVG: Grow,
+  },
 ];
 ---
 
-<section class="process-section" id="Process-section">
-    <div class="process-heading">
-        <Smudge class="smudge smudge-process" />
-        <p class="section-title">Our Process</p>
-        <p>How It Works</p>
+<section id="Process-section">
+  <div class="header-wrapper">
+    <div>
+      <Smudge />
+      <h2>Our Process</h2>
     </div>
+    <p>How It Works</p>
+  </div>
 
-    <div class="process-list">
-        {
-            process.map(
-                ({ title, description, includedList, SVG, outcome }, index) => {
-                    const listNum = index + 1;
-                    const isEven = listNum % 2 === 0;
-                    const SvgComponent = SVG;
+  <div class="process-list">
+    {
+      process.map(
+        ({ title, description, includedList, SVG, outcome }, index) => {
+          const listNum = index + 1;
+          const isEven = listNum % 2 === 0;
+          const SvgComponent = SVG;
 
-                    return (
-                        <div
-                            class:list={[
-                                "process-card",
-                                { "process-card-reverse": isEven },
-                            ]}
-                        >
-                            <SvgComponent class="process-icon" />
+          return (
+            <div class:list={["card", { "card-reverse": isEven }]}>
+              <SvgComponent class="process-icon" />
 
-                            <div class="process-content">
-                                <p class="process-title">
-                                    {listNum}. {title}
-                                </p>
-
-                                <p>{description}</p>
-
-                                <p>What's included</p>
-
-                                <ul>
-                                    {includedList.map((item) => (
-                                        <li>{item}</li>
-                                    ))}
-                                </ul>
-
-                                <p>👉 Outcome: {outcome}</p>
-                            </div>
-                        </div>
-                    );
-                },
-            )
-        }
-
-        <p class="process-footer">
-            🌟No technical experience needed — we handle everything from start
-            to finish.🌟
-        </p>
-    </div>
+              <div>
+                <h3 class="process-title">
+                  {listNum}. {title}
+                </h3>
+                <p>{description}</p>
+                <p>What's included</p>
+                <ul>
+                  {includedList.map((item) => (
+                    <li>{item}</li>
+                  ))}
+                </ul>
+                <p>👉 Outcome: {outcome}</p>
+              </div>
+            </div>
+          );
+        },
+      )
+    }
+  </div>
+  <h3>
+    🌟No technical experience needed — we handle everything from start to
+    finish.🌟
+  </h3>
 </section>
 
 <style>
-
-  p, ul {
-	font-size: 18px;
+  h3 {
+    font-size: var(--step-2);
+    font-weight: 700;
+    color: #1e1e1e;
   }
-
-  .smudge {
-    position: absolute;
-    width: 300px;
-  }
-
-  .smudge-process {
-    bottom: 52px;
-    right: 0;
-    left: 20px;
-    transform: scale(1.1, 0.9);
-    transform-origin: center;
-  }
-
-  .process-section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+  section {
+    padding: min(80px, 10vw);
     align-items: center;
     gap: 120px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    & > :last-child {
+      text-align: center;
+    }
   }
 
-  .process-heading {
+  .header-wrapper {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 10px;
     align-items: center;
+    & div {
+      position: relative;
+      & h2 {
+        font-size: var(--step-4);
+        position: relative;
+        margin: 0;
+      }
+      & svg {
+        position: absolute;
+        width: calc(var(--step-4) * 5);
+        bottom: -15px;
+        right: 0;
+        left: 20px;
+        transform: scale(1.1, 0.9);
+        transform-origin: center;
+      }
+    }
   }
 
   .process-list {
@@ -161,45 +159,38 @@ const process = [
     gap: 40px;
   }
 
-  .process-card {
+  .card {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     gap: 12px;
+    & svg {
+      min-width: min(400px, 50vw);
+      width: min(400px, 50vw);
+      min-height: min(400px, 50vw);
+      height: min(400px, 50vw);
+      background-color: white;
+      /* display: none; */
+    }
+    & div {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      & ul {
+        list-style-position: inside;
+        margin-left: -35px;
+      }
+    }
   }
-
-  .process-card-reverse {
+  .card-reverse {
     flex-direction: row-reverse;
   }
 
-  .process-icon {
-    width: 100%;
-    height: 100%;
-    max-width: 400px;
-    max-height: 400px;
-    background-color: white;
+  @media (max-width: 800px) {
+    .card {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
   }
-
-  .process-content {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .process-title {
-    font-weight: 700;
-    font-size: 48px;
-  }
-
-  .process-included-list {
-    list-style-type: disc;
-    list-style-position: inside;
-  }
-
-  .process-footer {
-    font-size: 40px;
-    text-align: center;
-    font-weight: 700;
-  }
-
-<style/>
+</style>
