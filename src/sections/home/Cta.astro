@@ -1,6 +1,8 @@
 ---
 import CtaSecurityDiagram from "../../../public/assets/homePage/cta-security-diagram.svg";
-import Smudge from "../../../public/assets/homePage/smudge.svg";
+import Smudge from "@svg/icons/smudge.svg";
+
+import { Image } from "astro:assets";
 ---
 
 <section id="CTA-section">
@@ -42,6 +44,10 @@ import Smudge from "../../../public/assets/homePage/smudge.svg";
     width: 500px;
     min-width: min(500px, 45vw);
     gap: 40px;
+    & button {
+      background-color: #1777eb;
+      color: white;
+    }
   }
 
   .header-wrapper {

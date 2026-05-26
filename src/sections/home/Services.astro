@@ -1,37 +1,39 @@
 ---
-import Smudge from "../../../public/assets/homePage/smudge.svg";
+import Smudge from "@svg/icons/smudge.svg";
+import websiteDesign from "@images/Home/Services/website-design.webp";
+import localSeoOptimization from "@images/Home/Services/local-seo-optimization.webp";
+import bookingSystemSetup from "@images/Home/Services/booking-system-setup.webp";
+import contentNdMediaCreation from "@images/Home/Services/content-and-media-creation.webp";
+
+import { Image } from "astro:assets";
 
 const services = [
   {
     title: "Website Design",
     description:
       "Custom-built websites designed to convert visitors into paying customers.",
-    image:
-      "https://media2.dev.to/dynamic/image/width=1080,height=1080,fit=cover,gravity=auto,format=auto/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/zsyklljdugbnhl6silqo.jpg",
+    image: websiteDesign,
     alt: "coding-image",
   },
   {
     title: "Local SEO Optimization",
     description:
       "Get your business ranking higher on Google so customers can find you in your area.",
-    image:
-      "https://images.squarespace-cdn.com/content/5dac9a5dd63b2c7e6452e34a/1710792832829-1NXWBZM2K7KXFJ83UVIA/Screenshot+2024-03-18+at+4.13.50%E2%80%AFPM.png?content-type=image%2Fpng",
+    image: localSeoOptimization,
     alt: "SEO-image",
   },
   {
     title: "Booking System Setup",
     description:
       "We integrate tools like booking platforms to make scheduling easy for your clients.",
-    image:
-      "https://cdn2.psychologytoday.com/assets/styles/manual_crop_4_3_1200x900/public/teaser_image/blog_entry/2024-06/Calendar.jpg?itok=5g55vUZ1",
+    image: bookingSystemSetup,
     alt: "Booking-image",
   },
   {
     title: "Content & Media Creation",
     description:
       "Professional photos and videos to help your brand stand out online.",
-    image:
-      "https://static.foxnews.com/foxnews.com/content/uploads/2025/06/1-how-to-move-photos-and-videos-off-of-a-phone.jpg",
+    image: contentNdMediaCreation,
     alt: "Content-and-Creation-image",
   },
 ];
@@ -52,7 +54,17 @@ const services = [
     {
       services.map(({ image, title, description, alt }) => (
         <figure class="card">
-          <img loading="lazy" class="service-image" src={image} alt={alt} />
+          <Image
+            loading="lazy"
+            class="service-image"
+            src={image}
+            alt={alt}
+            width={500}
+            height={500}
+            format="webp"
+            quality={70}
+            sizes="(max-width: 768px) 90vw, 500px"
+          />
           <figcaption>
             <h3>{title}</h3>
             <p>{description}</p>

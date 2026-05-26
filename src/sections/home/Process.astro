@@ -1,10 +1,12 @@
 ---
-import Discovery from "../../../public/assets/homePage/OurProcess/discovery.svg";
-import Grow from "../../../public/assets/homePage/OurProcess/grow.svg";
-import Build from "../../../public/assets/homePage/OurProcess/build.svg";
-import Launch from "../../../public/assets/homePage/OurProcess/launch.svg";
+import Discovery from "@images/Home/Process/discovery.webp";
+import Grow from "@images/Home/Process/grow.webp";
+import Build from "@images/Home/Process/build.webp";
+// import Launch from "@images/Home/Process/launch.webp";
 
-import Smudge from "../../../public/assets/homePage/smudge.svg";
+import Smudge from "@svg/icons/smudge.svg";
+
+import { Image } from "astro:assets";
 
 const process = [
   {
@@ -18,7 +20,7 @@ const process = [
       "review of your current online presence",
       "goal setting",
     ],
-    SVG: Discovery,
+    src: Discovery,
   },
   {
     title: "Build",
@@ -31,7 +33,7 @@ const process = [
       "booking system integration (Booksy, etc.)",
       "fast and responsive performance",
     ],
-    SVG: Build,
+    src: Build,
   },
   {
     title: "Launch",
@@ -44,7 +46,7 @@ const process = [
       "going live",
       "ensuring booking and contact features work",
     ],
-    SVG: Launch,
+    src: undefined,
   },
   {
     title: "Grow",
@@ -57,7 +59,7 @@ const process = [
       "performance tracking",
       "optional monthly support",
     ],
-    SVG: Grow,
+    src: Grow,
   },
 ];
 ---
@@ -74,14 +76,14 @@ const process = [
   <div class="process-list">
     {
       process.map(
-        ({ title, description, includedList, SVG, outcome }, index) => {
+        ({ title, description, includedList, src, outcome }, index) => {
           const listNum = index + 1;
           const isEven = listNum % 2 === 0;
-          const SvgComponent = SVG;
 
           return (
             <div class:list={["card", { "card-reverse": isEven }]}>
-              <SvgComponent class="process-icon" />
+              {src && <Image loading="lazy" src={src} alt={`${title} image`} />}
+              {/* <Image loading="lazy" src={src} alt={`${title} image`} /> */}
 
               <div>
                 <h3 class="process-title">
@@ -164,13 +166,11 @@ const process = [
     flex-direction: row;
     align-items: flex-start;
     gap: 12px;
-    & svg {
+    & image {
       min-width: min(400px, 50vw);
       width: min(400px, 50vw);
       min-height: min(400px, 50vw);
       height: min(400px, 50vw);
-      background-color: white;
-      /* display: none; */
     }
     & div {
       display: flex;

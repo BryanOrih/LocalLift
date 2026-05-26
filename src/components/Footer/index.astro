@@ -1,8 +1,8 @@
 ---
-import Facebook from "../../../public/assets/logos/facebookIcon.svg";
-import Twitter from "../../../public/assets/logos/twitterIcon.svg";
-import LinkedIn from "../../../public/assets/logos/linkedinIcon.svg";
-import LocalLift from "../../../public/assets/logos/localLift.svg";
+import Facebook from "@svg/logos/facebookIcon.svg";
+import Twitter from "@svg/logos/twitterIcon.svg";
+import LinkedIn from "@svg/logos/linkedinIcon.svg";
+import LocalLift from "@svg/logos/localLift.svg";
 ---
 
 <footer>
@@ -29,13 +29,13 @@ import LocalLift from "../../../public/assets/logos/localLift.svg";
       <small>@2026 LocalLift LLC.</small>
     </div>
     <div class="socials">
-      <a>
+      <a aria-label="Facebook">
         <Facebook />
       </a>
-      <a>
+      <a aria-label="Twitter">
         <Twitter />
       </a>
-      <a>
+      <a aria-label="LinkedIn">
         <LinkedIn />
       </a>
     </div>
@@ -80,12 +80,15 @@ import LocalLift from "../../../public/assets/logos/localLift.svg";
   .cta {
     display: flex;
     flex-direction: column;
-
     max-width: 200px;
     gap: 20px;
     & h4 {
       font-size: var(--step-0);
       margin: 0;
+    }
+    & button {
+      background-color: #1777eb;
+      color: white;
     }
   }
 

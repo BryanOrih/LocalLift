@@ -1,6 +1,8 @@
 ---
-import HeroIconBg from "../../../public/assets/homePage/heroIconBg.svg";
-import HeroIcon from "../../../public/assets/homePage/heroIcon.svg";
+import HeroIconBg from "@svg/heroIconBg.svg";
+import HeroImage from "@images/Home/Hero/hero-image.webp";
+
+import { Image } from "astro:assets";
 ---
 
 <section class="hero-section" id="Hero-section">
@@ -15,7 +17,13 @@ import HeroIcon from "../../../public/assets/homePage/heroIcon.svg";
     <button>Free Consultation</button>
   </div>
 
-  <HeroIcon class="hero-icon" />
+  <Image
+    class="hero-icon"
+    src={HeroImage}
+    alt="Hero Image"
+    format="webp"
+    quality={70}
+  />
 </section>
 
 <style>
@@ -60,6 +68,10 @@ import HeroIcon from "../../../public/assets/homePage/heroIcon.svg";
       font-weight: 700;
       font-size: var(--step-5);
       font-weight: 700;
+    }
+    & button {
+      background-color: #1777eb;
+      color: white;
     }
   }
 

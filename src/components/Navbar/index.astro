@@ -1,7 +1,7 @@
 ---
-import Logo from "../../../public/assets/logos/localLift.svg";
-import HamburgerIcon from "../../../public/assets/icons/hamburget-btn.svg";
-import XIcon from "../../../public/assets/icons/close-x.svg";
+import Logo from "@svg/logos/localLift.svg";
+import HamburgerIcon from "@svg/icons/hamburger-btn.svg";
+import XIcon from "@svg/icons/close-x.svg";
 ---
 
 <style>
@@ -21,6 +21,7 @@ import XIcon from "../../../public/assets/icons/close-x.svg";
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
     & p {
       font-size: 28px;
       font-weight: 600;
@@ -73,7 +74,11 @@ import XIcon from "../../../public/assets/icons/close-x.svg";
   }
 
   .side-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     position: fixed;
+    padding: 0;
     top: 0;
     right: 0;
     left: 100%;
@@ -124,13 +129,13 @@ import XIcon from "../../../public/assets/icons/close-x.svg";
 </style>
 
 <nav>
-  <div class="section-1">
+  <a class="section-1" href="/">
     <Logo width={50} />
     <p>Local Lift</p>
-  </div>
+  </a>
   <div class="section-2">
-    <a href="#solutions">Solutions</a>
-    <a href="#contact">Contact</a>
+    <a href="/solutions/">Solutions</a>
+    <a href="/contact-us/">Contact</a>
   </div>
   <div class="section-3">
     <button>Contact Us</button>
@@ -141,8 +146,8 @@ import XIcon from "../../../public/assets/icons/close-x.svg";
 <nav class="side-menu" aria-label="Mobile Navigation Menu">
   <XIcon class="x-icon icon" />
   <div class="side-menu-content">
-    <a href="#solutions">Solutions</a>
-    <a href="#contact">Contact</a>
+    <a href="/solutions/">Solutions</a>
+    <a href="/contact-us/">Contact</a>
   </div>
 </nav>
 {/* Spacer (offset for fixed navbar) */}
